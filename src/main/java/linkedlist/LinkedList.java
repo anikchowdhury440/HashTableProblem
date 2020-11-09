@@ -87,9 +87,6 @@ public class LinkedList<K> {
 			}
 			tempNode = tempNode.getNext();
 		}
-		if(tempNode.getKey().equals(key)) {
-			return tempNode;
-		}
 		return null;
 	}
 	
@@ -126,20 +123,7 @@ public class LinkedList<K> {
 	}
 	
 	public void printNodes() {
-		StringBuffer myNodes = new StringBuffer();
-		if(isEmpty()) {
-			return;
-		}
-		INode<K> tempNode = this.head;
-		while(tempNode.getNext() != null) {
-			myNodes.append(tempNode.getKey());
-			if(!tempNode.equals(this.tail)) {
-				myNodes.append("->");
-			}
-			tempNode = tempNode.getNext();
-		}
-		myNodes.append(tempNode.getKey());
-		System.out.println(myNodes);
+		System.out.println(head);
 	}
-	
+
 }

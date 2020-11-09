@@ -25,4 +25,12 @@ public class Node<K> implements INode<K>{
 		this.next = next;
 	}
 
+	@Override
+	public String toString() {
+		StringBuilder linkedListString = new StringBuilder();
+		linkedListString.append(key);
+		if(next != null)
+			linkedListString.append("->").append(next);
+		return linkedListString.toString();
+	}
 }
