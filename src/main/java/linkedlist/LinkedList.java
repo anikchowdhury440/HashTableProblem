@@ -81,7 +81,7 @@ public class LinkedList<K> {
 	
 	public INode<K> search(K key) {
 		INode<K> tempNode = this.head;
-		while(tempNode != null && tempNode.getNext() != null) {
+		while(tempNode != null) {
 			if(tempNode.getKey().equals(key)) {
 				return tempNode;
 			}
@@ -124,6 +124,11 @@ public class LinkedList<K> {
 	
 	public void printNodes() {
 		System.out.println(head);
+	}
+	
+	@Override
+	public String toString() {
+		return "" + head + "";
 	}
 
 }
