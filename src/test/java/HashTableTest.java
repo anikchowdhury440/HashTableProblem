@@ -21,12 +21,13 @@ public class HashTableTest {
 			hashTable.add(word, value);
 		}
 		int frequency = hashTable.get("to");
+		System.out.println(hashTable);
 		Assert.assertEquals(2, frequency);
 	}
 	
 	@Test
 	public void givenParagraph_WhenWordsAreAddedToList_ShouldReturnWordFrequency() {
-		String sentence = "paranoid are not paranoid";
+		String sentence = "paranoid are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situation";
 		HashTable<String, Integer> hashTable = new HashTable<>();
 		String[] words = sentence.toLowerCase().split(" ");
 		for(String word : words) {
@@ -40,6 +41,7 @@ public class HashTableTest {
 			hashTable.add(word, value);
 		}
 		int frequency = hashTable.get("paranoid");
-		Assert.assertEquals(2, frequency);
+		Assert.assertEquals(4, frequency);
+		System.out.println(hashTable);
 	}
 }
