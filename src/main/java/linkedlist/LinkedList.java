@@ -90,7 +90,7 @@ public class LinkedList<K> {
 		return null;
 	}
 	
-	public void delete(INode<K> node) {
+	public INode<K> remove(INode<K> node) {
 		
 		INode<K> removedNode = search(node.getKey());
 		if(removedNode != null) {
@@ -99,26 +99,21 @@ public class LinkedList<K> {
 				tempNode = tempNode.getNext();
 			}
 			tempNode.setNext(removedNode.getNext());
-			System.out.println("After Deleting Size = " + size());
+			return removedNode;
 		}
 		else {
 			System.out.println("Node can't deleted");
+			return null;
 		}
 	}
 
 	public int size() {
 		int count = 0;
 		INode<K> tempNode = this.head;
-		if(tempNode == null) {
-			return count;
-		}
-		count++;
-		while(tempNode.getNext() != this.tail) {
-			tempNode = tempNode.getNext();
+		while(tempNode != null) {
 			count++;
+			tempNode = tempNode.getNext();
 		}
-		tempNode = tempNode.getNext();
-		count++;
 		return count;
 	}
 	

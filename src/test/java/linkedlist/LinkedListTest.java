@@ -163,6 +163,8 @@ public class LinkedListTest {
 		linkedList.printNodes();
 		linkedList.insert(new Node<Integer>(60), insertedNode);
 		linkedList.printNodes();
+		int size = linkedList.size();
+		System.out.println("Size = " +size);
 		boolean result = linkedList.head.equals(firstNode) &&
 				 linkedList.head.getNext().equals(secondNode) &&
 				 linkedList.tail.equals(thirdNode);
@@ -181,8 +183,10 @@ public class LinkedListTest {
 		linkedList.append(thirdNode);
 		linkedList.append(fourthNode);
 		linkedList.printNodes();
-		linkedList.delete(thirdNode);
+		linkedList.remove(thirdNode);
 		linkedList.printNodes();
+		int size = linkedList.size();
+		System.out.println("Size = " +size);
 		boolean result = linkedList.head.equals(firstNode) &&
 				 linkedList.head.getNext().equals(secondNode) &&
 				 linkedList.tail.equals(fourthNode);
@@ -201,8 +205,9 @@ public class LinkedListTest {
 		linkedList.append(thirdNode);
 		linkedList.append(fourthNode);
 		linkedList.printNodes();
-		linkedList.delete(new Node<Integer>(90));
+		linkedList.remove(new Node<Integer>(90));
 		linkedList.printNodes();
+		linkedList.size();
 		boolean result = linkedList.head.equals(firstNode) &&
 				 linkedList.head.getNext().equals(secondNode) &&
 				 linkedList.head.getNext().getNext().equals(thirdNode) &&

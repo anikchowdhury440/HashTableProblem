@@ -41,7 +41,28 @@ public class HashTableTest {
 			hashTable.add(word, value);
 		}
 		int frequency = hashTable.get("paranoid");
-		Assert.assertEquals(4, frequency);
 		System.out.println(hashTable);
+		Assert.assertEquals(4, frequency);
+	}
+	
+	@Test
+	public void givenWords_WhenRemovedFromSentence_ShouldRemoveThatWordFromSentence() {
+		String sentence = "paranoid are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situation";
+		HashTable<String, Integer> hashTable = new HashTable<>();
+		String[] words = sentence.toLowerCase().split(" ");
+		for(String word : words) {
+			Integer value = hashTable.get(word);
+			if(value == null) {
+				value = 1;
+			}
+			else {
+				value++;
+			}
+			hashTable.add(word, value);
+		}
+		System.out.println(hashTable);
+		int removedValue = hashTable.remove("avoidable");
+		System.out.println(hashTable);
+		Assert.assertEquals(1, removedValue);
 	}
 }

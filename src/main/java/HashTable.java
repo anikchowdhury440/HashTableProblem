@@ -52,6 +52,22 @@ public class HashTable<K, V> {
 		}
 	}
 	
+	public V remove(K key) {
+		int index = this.getBucketIndex(key);
+		LinkedList<K> linkedList = this.myBucketArray.get(index);
+		if(linkedList == null) {
+			return null;
+		}
+		MyMapNode<K, V> myMapNode = (MyMapNode<K, V>) linkedList.search(key);
+		if(myMapNode == null) {
+			return null;
+		}
+		else {
+			linkedList.remove(myMapNode);
+			return myMapNode.getValue();
+		}
+	}
+	
 	@Override
 	public String toString() {
 		return "" + myBucketArray + "";
